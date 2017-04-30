@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weight: MyString
+  size: MyString
+  warehouse_location: MyString
+  recipent_address: MyString
+  distance: MyString
+  delivery_time: MyString
+  recipent_name: MyString
+  recipent_mob: MyString
+  price: MyString
+  status: 1
+
+two:
+  weight: MyString
+  size: MyString
+  warehouse_location: MyString
+  recipent_address: MyString
+  distance: MyString
+  delivery_time: MyString
+  recipent_name: MyString
+  recipent_mob: MyString
+  price: MyString
+  status: 1

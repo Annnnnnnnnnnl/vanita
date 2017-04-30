@@ -1,0 +1,104 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h2 >Upload Package</h2>
+	</div>
+</div>
+
+   <div class="panel-body">
+     <div class="container">
+		<%= form_for @package do |f| %>
+			<% if @package.errors.any? %>
+				<div class="alert alert-info">
+					<h3>
+						Fix the following <%= pluralize(@package.errors.count, "error") %> before continuing:
+					</h3>
+					<ul>
+						<% @package.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+
+      <div class="row">
+        <h3>Package detail</h3>
+      <div class="col-md-3 select">
+			<div class="form-group">
+				<label>Weight</label>
+        <%= f.select :weight, [["0~0.5kg","0~0.5kg"], ["0.5kg~1.0kg","0.5kg~1.0kg"], ["1.0kg~1.5kg","1.0kg~1.5kg"],[">1.5kg",">1.5kg"]], prompt: "Select...", class: "form-control" %>
+  			</div>
+      </div>
+
+      <div class="col-md-3 select">
+        <div class="form-group">
+  				<label>Size</label>
+          <%= f.select :size, [["0~0.5","0~0.5"], ["0.5~1.0","0.5~1.0"], ["1.0~1.5","1.0~1.5"],[">1.5",">1.5"]], prompt: "Select...", class: "form-control" %>
+    			</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 select">
+          <div class="form-group">
+            <label>Warehouse </label>
+						<%= f.select :warehouse_location, [["abc warehouse","abc warehouse"], ["bbc warehouse","bbc warehouse"], ["cbc warehouse","cbc warehouse"],["dbc warehouse","dbc warehouse"]], prompt: "Select...", class: "form-control" %>
+            </div>
+          </div>
+      </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Recipent Name</label>
+              <%= f.text_field :recipent_name, class:"form-control" %>
+            </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-group">
+        <label>Recipent contact</label>
+        <%= f.text_field :recipent_mob, class:"form-control" %>
+         </div>
+      </div>
+    </div>
+
+      <div class="form-group">
+        <label>Delivery Address</label>
+        <%= f.text_area :recipent_address, rows: "2", class:"form-control" %>
+      </div>
+
+			<div class="row">
+        <h3>delivery requirement</h3>
+				<div class="col-md-2">
+					<div class="form-group">
+						<label>Pricing</label>
+						<div class="select-control">
+							<%= f.select :price, [["$2", "2"], ["$4", "4"], ["$5", "5"], ["$10", "10"]], class:"form-control" %>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-group">
+						<label>Delivery Time</label>
+						<div class="select-control">
+							<%= f.select :delivery_time, [["1 Day", "1"], ["2 Days", "2"], ["3 Days", "3"], ["4 Days", "4"]], class:"form-control" %>
+						</div>
+					</div>
+				</div>
+
+        <div class="col-md-3">
+					<div class="form-group">
+						<label>Distance</label>
+						<div class="select-control">
+							<%= f.select :distance, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"]], class:"form-control" %>
+						</div>
+					</div>
+				</div>
+      </div>
+
+
+			<hr>
+			<%= f.submit @package.new_record? ? "Pubish" : "Update", class:"btn btn-primary" %>
+		<% end %>
+	</div>
+ </div>

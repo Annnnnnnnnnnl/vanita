@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= form_for([@package, @package.tasks.new]) do |f| %>
+      <%= f.hidden_field :packge_id, value: @package.id %>
+      <%= f.hidden_field :package_price, value: @package.price  %>
+      <center>
+      <%= f.submit "Accept Now", class: "btn btn-primary btn-lg btn-order"%>
+    </center>
+
+</script>
